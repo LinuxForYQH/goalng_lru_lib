@@ -67,6 +67,7 @@ func (c *Cache) Get(key interface{}) (interface{}, int) {
 func (c *Cache) Put(key, value interface{}) {
 	//看一下是否存在,存在那么放第一
 	if _, i := c.Get(key); i == 1 {
+		c.first.element.key = value
 		return
 	}
 	element := &Element{key: key, val: value}
